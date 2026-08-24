@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Inka & Rifki - Adat Bugis</title>
+
+  <!-- SEO & Meta Tags -->
+  <meta name="description"
+    content="Undangan Pernikahan Digital Inka & Rifki dengan tema Adat Bugis Makassar. Menyatu dalam kehangatan budaya dan cinta.">
+  <meta property="og:title" content="Undangan Pernikahan Inka & Rifki (Adat Bugis)">
+  <meta property="og:description" content="Kami mengundang Bapak/Ibu/Saudara/i untuk hadir di pesta pernikahan kami.">
+  <meta property="og:image" content="assets/couple.jpg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Background Music Player Track (Lagu Bugis: Rannu) -->
+  <audio id="bg-music" loop preload="auto">
+    <source src="assets/rannu.mp3" type="audio/mpeg">
+    <source src="rannu.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung pemutar musik HTML5.
+  </audio>
+
+  <!-- Floating Music Toggle Control Button -->
+  <button id="music-toggle-btn" class="music-btn pulse-glow" title="Putar/Hentikan Musik" aria-label="Toggle Musik">
+    <i class="fa-solid fa-compact-disc disk-spin"></i>
+    <span class="music-wave">
+      <span></span><span></span><span></span>
+    </span>
+  </button>
+
+  <!-- Dynamic Gold Dust Canvas Animation Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- COVER SCREEN / ENVELOPE GATE -->
+  <section id="cover-screen" class="cover-overlay">
+    <div class="cover-content">
+      <div class="bugis-emblem-wrapper">
+        <img src="assets/bugis_gold_crest.png" alt="Ornamen Bugis Gold" class="cover-emblem">
+      </div>
+      <p class="subtitle-traditional">WALIMATUL 'URSY</p>
+      <h1 class="couple-title-cover">Inka & Rifki</h1>
+      <p class="cultural-quote-small">ᨔᨒᨀᨚ ᨆᨑᨆ • Sakinah Mawaddah Warahmah</p>
+
+      <div class="guest-card">
+        <p class="guest-intro">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+        <h2 id="guest-name-display" class="guest-name">Tamu Undangan</h2>
+        <p class="guest-sub">Di Tempat</p>
+      </div>
+
+      <button id="open-invitation-btn" class="btn-open-envelope">
+        <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+      </button>
+    </div>
+  </section>
+
+  <!-- MAIN INVITATION CONTENT -->
+  <main id="main-content" class="main-content hidden-content">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="bottom-nav">
+      <a href="#hero" class="nav-item active"><i class="fa-solid fa-house"></i><span>Beranda</span></a>
+      <a href="#couple" class="nav-item"><i class="fa-solid fa-heart"></i><span>Mempelai</span></a>
+      <a href="#event" class="nav-item"><i class="fa-solid fa-calendar-day"></i><span>Acara</span></a>
+      <a href="#gallery" class="nav-item"><i class="fa-solid fa-images"></i><span>Galeri</span></a>
+      <a href="#gift" class="nav-item"><i class="fa-solid fa-gift"></i><span>Hadiah</span></a>
+      <a href="#rsvp" class="nav-item"><i class="fa-solid fa-paper-plane"></i><span>RSVP</span></a>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-bg-overlay"></div>
+      <div class="hero-container">
+        <div class="sulapa-eppa-crest">
+          <img src="assets/bugis_gold_crest.png" alt="Crown Crest" class="crest-img">
+        </div>
+        <p class="hero-subtitle">UNDANGAN PERNIKAHAN ADAT BUGIS</p>
+        <h1 class="hero-names">Inka & Rifki</h1>
+        <p class="hero-date"><i class="fa-regular fa-calendar"></i> Minggu, 20 September 2026</p>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-wrapper">
+          <div class="timer-box">
+            <span id="days">00</span>
+            <small>Hari</small>
+          </div>
+          <div class="timer-divider">:</div>
+          <div class="timer-box">
+            <span id="hours">00</span>
+            <small>Jam</small>
+          </div>
+          <div class="timer-divider">:</div>
+          <div class="timer-box">
+            <span id="minutes">00</span>
+            <small>Menit</small>
+          </div>
+          <div class="timer-divider">:</div>
+          <div class="timer-box">
+            <span id="seconds">00</span>
+            <small>Detik</small>
+          </div>
+        </div>
+
+        <div class="hero-action">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Inka+%26+Rifki+(Adat+Bugis)&dates=20260920T030000Z/20260920T080000Z&details=Undangan+Pernikahan+Adat+Bugis+Inka+%26+Rifki&location=Swiss-Belhotel+Kendari"
+            target="_blank" class="btn-primary">
+            <i class="fa-regular fa-calendar-plus"></i> Simpan Tanggal (Google Calendar)
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMPELAI SECTION (COUPLE PROFILE) -->
+    <section id="couple" class="section couple-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨔᨗᨄᨀᨈᨚ ᨔᨗᨄᨀᨒᨛᨅᨗ</span>
+          <h2 class="section-title">Pasangan Mempelai</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="quran-quote-card">
+          <p class="arabic-text">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+            وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+          <p class="quote-translation">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu istri-istri dari jenismu sendiri,
+            supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+          </p>
+          <p class="quote-source">(QS. Ar-Rum: 21)</p>
+          <div class="bugis-motto">
+            <i class="fa-solid fa-quote-left"></i>
+            <span>"Sipakatau, Sipakalebbi, Sipakainge" (Saling menghormati, menghargai, & saling mengingatkan dalam
+              kebaikan)</span>
+          </div>
+        </div>
+
+        <div class="couple-grid">
+          <!-- Bride Card (Inka Maulika) -->
+          <div class="couple-card bride-card">
+            <div class="photo-frame-wrapper">
+              <div class="bugis-frame-gold"></div>
+              <img src="assets/bride.jpg" alt="Inka Maulika" class="couple-photo">
+            </div>
+            <h3 class="person-name">Inka Maulika, S.Pd.</h3>
+            <p class="person-role">Mempelai Wanita</p>
+            <p class="parents-info">
+              Putri tercinta dari:<br>
+              <strong>Bapak H. Ahmad</strong> & <strong>Ibu Hj. Marwah</strong>
+            </p>
+            <a href="https://instagram.com" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i>
+              @inka_maulika</a>
+          </div>
+
+          <!-- Center Couple Together Card -->
+          <div class="couple-center-card">
+            <div class="center-photo-frame">
+              <img src="assets/couple.jpg" alt="Inka & Rifki Together" class="center-couple-img">
+              <div class="center-badge">
+                <i class="fa-solid fa-heart"></i>
+              </div>
+            </div>
+            <p class="center-text-quote">"Mallebbi wal-nu'man, Padapada Tappareng Walennae"</p>
+          </div>
+
+          <!-- Groom Card (Muhammad Rifki) -->
+          <div class="couple-card groom-card">
+            <div class="photo-frame-wrapper">
+              <div class="bugis-frame-gold"></div>
+              <img src="assets/groom.jpg" alt="Muhammad Rifki" class="couple-photo">
+            </div>
+            <h3 class="person-name">Muhammad Rifki, S.T.</h3>
+            <p class="person-role">Mempelai Pria</p>
+            <p class="parents-info">
+              Putra tercinta dari:<br>
+              <strong>Bapak H. Syamsuddin</strong> & <strong>Ibu Hj. Halimah</strong>
+            </p>
+            <a href="https://instagram.com" target="_blank" class="social-link"><i class="fa-brands fa-instagram"></i>
+              @muhammad_rifki</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENT SCHEDULE SECTION (RANGKAIAN ACARA) -->
+    <section id="event" class="section event-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨑᨃᨕᨗᨕᨛ ᨕᨌᨑ</span>
+          <h2 class="section-title">Rangkaian Acara</h2>
+          <div class="gold-divider"></div>
+          <p class="section-desc">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i pada:
+          </p>
+        </div>
+
+        <div class="event-cards-grid">
+          <!-- Event 1: Mappaci -->
+          <div class="event-card bugis-pattern-border">
+            <div class="event-icon-badge">
+              <i class="fa-solid fa-hands-holding"></i>
+            </div>
+            <h3 class="event-name">Mappaci (Malam Pacar)</h3>
+            <p class="event-sub-desc">Ritual adat penyucian diri sebelum akad nikah</p>
+            <div class="event-details">
+              <p><i class="fa-regular fa-calendar-check"></i> Sabtu, 19 September 2026</p>
+              <p><i class="fa-regular fa-clock"></i> 19.30 WITA - Selesai</p>
+              <p><i class="fa-solid fa-location-dot"></i> Kediaman Mempelai Wanita (Jl. Sultan Alauddin No. 45,
+                Makassar)</p>
+            </div>
+            <div class="event-action">
+              <a href="https://maps.google.com/?q=Makassar" target="_blank" class="btn-outline-gold"><i
+                  class="fa-solid fa-map-location-dot"></i> Penunjuk Lokasi</a>
+            </div>
+          </div>
+
+          <!-- Event 2: Akad Nikah -->
+          <div class="event-card bugis-pattern-border highlight-card">
+            <div class="event-icon-badge">
+              <i class="fa-solid fa-ring"></i>
+            </div>
+            <h3 class="event-name">Akad Nikah</h3>
+            <p class="event-sub-desc">Momen sakral pengikatan janji suci</p>
+            <div class="event-details">
+              <p><i class="fa-regular fa-calendar-check"></i> Minggu, 20 September 2026</p>
+              <p><i class="fa-regular fa-clock"></i> 09.00 WITA - Selesai</p>
+              <p><i class="fa-solid fa-location-dot"></i> Swiss-Belhotel Kendari (Jl. Edi Sabara No. 88, Lahundape, Kendari Barat, Kendari)
+              </p>
+            </div>
+            <div class="event-action">
+              <a href="https://maps.google.com/?q=Swiss-Belhotel+Kendari" target="_blank" class="btn-primary"><i
+                  class="fa-solid fa-map-location-dot"></i> Buka Google Maps</a>
+            </div>
+          </div>
+
+          <!-- Event 3: Resepsi Adat Bugis -->
+          <div class="event-card bugis-pattern-border">
+            <div class="event-icon-badge">
+              <i class="fa-solid fa-champagne-glasses"></i>
+            </div>
+            <h3 class="event-name">Resepsi Pernikahan Adat Bugis</h3>
+            <p class="event-sub-desc">Syukuran dan pesta pernikahan</p>
+            <div class="event-details">
+              <p><i class="fa-regular fa-calendar-check"></i> Minggu, 20 September 2026</p>
+              <p><i class="fa-regular fa-clock"></i> 11.00 WITA - 15.00 WITA</p>
+              <p><i class="fa-solid fa-location-dot"></i> Grand Ballroom Swiss-Belhotel Kendari</p>
+            </div>
+            <div class="event-action">
+              <a href="https://maps.google.com/?q=Swiss-Belhotel+Kendari" target="_blank" class="btn-outline-gold"><i
+                  class="fa-solid fa-map-location-dot"></i> Buka Google Maps</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Embedded Map Modal Preview Wrapper -->
+        <div class="map-embed-wrapper">
+          <h3><i class="fa-solid fa-location-crosshairs"></i> Peta Lokasi Acara</h3>
+          <div class="iframe-container">
+            <iframe title="Lokasi Pernikahan"
+              src="https://maps.google.com/maps?q=Swiss-Belhotel%20Kendari&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOVE STORY TIMELINE (KISAH CINTA) -->
+    <section id="story" class="section story-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨀᨗᨔ ᨌᨗᨛᨈ</span>
+          <h2 class="section-title">Kisah Cinta Kami</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="timeline-year"><i class="fa-regular fa-paper-plane"></i> 2024</span>
+              <h3>Pertama Kali Bertemu</h3>
+              <p>Dipertemukan di bangku sekolah, bermula dari senyuman sederhana hingga tumbuh benih-benih
+                kebersamaan.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <span class="timeline-year"><i class="fa-solid fa-gem"></i> 2025</span>
+              <h3>Mappaettu Ada (Lamaran Adat)</h3>
+              <p>Keluarga besar bertemu dalam kehangatan adat Bugis Mappaettu Ada untuk merestui niat suci menuju
+                jenjang pernikahan.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <span class="timeline-year"><i class="fa-solid fa-heart-circle-check"></i> 2026</span>
+              <h3>Menuju Pelaminan</h3>
+              <p>Dengan izin Allah SWT dan doa restu kedua orang tua, kami mengikat janji suci dalam pernikahan adat
+                Bugis Makassar.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION (GALERI FOTO) -->
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨁᨒᨛᨑᨗ ᨹᨚᨈᨚ</span>
+          <h2 class="section-title">Galeri Momen Bahagia</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item" onclick="openLightbox('assets/couple.jpg', 'Foto Bersama Inka & Rifki')">
+            <img src="assets/couple.jpg" alt="Foto Bersama">
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('assets/bride.jpg', 'Mempelai Wanita Inka Maulika')">
+            <img src="assets/bride.jpg" alt="Inka Maulika">
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+          <div class="gallery-item" onclick="openLightbox('assets/groom.jpg', 'Mempelai Pria Muhammad Rifki')">
+            <img src="assets/groom.jpg" alt="Muhammad Rifki">
+            <div class="gallery-overlay">
+              <i class="fa-solid fa-magnifying-glass-plus"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox-modal" class="lightbox-modal">
+      <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-img" class="lightbox-content" src="" alt="Zoom Image">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <!-- DIGITAL GIFT & BANK DETAILS (AMPLOP DIGITAL) -->
+    <section id="gift" class="section gift-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨕᨆᨛᨄᨚ ᨉᨗᨁᨗᨈᨒᨛ</span>
+          <h2 class="section-title">Amplop Digital & Kado</h2>
+          <div class="gold-divider"></div>
+          <p class="section-desc">Doa restu Anda merupakan karunia terindah bagi kami. Namun jika ingin memberikan tanda
+            kasih, Anda dapat menyalurkannya melalui:</p>
+        </div>
+
+        <div class="gift-cards-grid single-gift-grid">
+          <!-- Physical Gift Card -->
+          <div class="gift-card">
+            <div class="gift-icon">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3>Kirim Kado Fisik</h3>
+            <p class="gift-address">
+              Jl. Sultan Alauddin No. 45, Kecamatan Rappocini, Kota Makassar, Sulawesi Selatan (75122)
+            </p>
+            <button class="btn-copy"
+              onclick="copyToClipboard('Jl. Sultan Alauddin No. 45, Kecamatan Rappocini, Kota Makassar', 'Alamat Kado')">
+              <i class="fa-regular fa-copy"></i> Salin Alamat Pengiriman
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP & GUESTBOOK (BUKU TAMU & DOA) -->
+    <section id="rsvp" class="section rsvp-section">
+      <div class="container">
+        <div class="section-title-wrapper">
+          <span class="lontara-sub">ᨅᨘᨀᨘ ᨈᨆᨘ ᨊ ᨉᨚᨕ</span>
+          <h2 class="section-title">Konfirmasi Kehadiran & Ucapan</h2>
+          <div class="gold-divider"></div>
+        </div>
+
+        <div class="rsvp-grid">
+          <!-- Form -->
+          <div class="rsvp-form-card">
+            <h3><i class="fa-solid fa-pen-fancy"></i> Isi Kehadiran & Doa</h3>
+            <form id="rsvp-form" onsubmit="submitRSVP(event)">
+              <div class="form-group">
+                <label for="rsvp-name">Nama Lengkap</label>
+                <input type="text" id="rsvp-name" required placeholder="Masukkan nama Anda">
+              </div>
+
+              <div class="form-group">
+                <label for="rsvp-status">Konfirmasi Kehadiran</label>
+                <select id="rsvp-status" required>
+                  <option value="" disabled selected>-- Pilih Kehadiran --</option>
+                  <option value="Hadir">Ya, Saya Akan Hadir</option>
+                  <option value="Tidak Hadir">Maaf, Saya Tidak Bisa Hadir</option>
+                  <option value="Ragu-ragu">Masih Ragu-ragu</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="rsvp-count">Jumlah Tamu Hadir</label>
+                <select id="rsvp-count">
+                  <option value="1 Orang">1 Orang</option>
+                  <option value="2 Orang">2 Orang</option>
+                  <option value="3+ Orang">3+ Orang</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="rsvp-message">Ucapan & Doa Restu</label>
+                <textarea id="rsvp-message" rows="4" required
+                  placeholder="Tuliskan ucapan & doa terbaik untuk kedua mempelai..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary btn-block"><i class="fa-solid fa-paper-plane"></i> Kirim
+                Konfirmasi & Doa</button>
+            </form>
+          </div>
+
+          <!-- Live Wish Feed -->
+          <div class="rsvp-feed-card">
+            <h3><i class="fa-solid fa-comments"></i> Doa & Ucapan Tamu (<span id="wish-count">3</span>)</h3>
+            <div id="wishes-list" class="wishes-list">
+              <!-- Initial Sample Wishes -->
+              <div class="wish-item">
+                <div class="wish-header">
+                  <strong>Andi Muhammad Rizal</strong>
+                  <span class="badge-status hadir"><i class="fa-solid fa-check"></i> Hadir</span>
+                </div>
+                <p class="wish-text">Selamat untuk Inka & Rifki! Semoga menjadi keluarga yang Sakinah, Mawaddah,
+                  Warahmah. Salama ki tapada salama!</p>
+                <small class="wish-time">Baru saja</small>
+              </div>
+
+              <div class="wish-item">
+                <div class="wish-header">
+                  <strong>Siti Nurhaliza & Keluarga</strong>
+                  <span class="badge-status hadir"><i class="fa-solid fa-check"></i> Hadir</span>
+                </div>
+                <p class="wish-text">Selamat menempuh hidup baru Inka Maulika sayang! Lancar sampai hari H acara adatnya yaa 💖
+                </p>
+                <small class="wish-time">1 jam yang lalu</small>
+              </div>
+
+              <div class="wish-item">
+                <div class="wish-header">
+                  <strong>Bpk. Kaharuddin</strong>
+                  <span class="badge-status ragu"><i class="fa-solid fa-clock"></i> Ragu-ragu</span>
+                </div>
+                <p class="wish-text">Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Turut bahagia
+                  untuk kedua keluarga besar!</p>
+                <small class="wish-time">3 jam yang lalu</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER / CLOSING SECTION -->
+    <footer class="footer-section">
+      <div class="container text-center">
+        <img src="assets/bugis_gold_crest.png" alt="Bugis Emblem" class="footer-emblem">
+        <h2 class="footer-couple">Inka & Rifki</h2>
+        <p class="cultural-closing">
+          "Tarada ada na gau, Sipakalebbi maki padatta rupa tau"<br>
+          <small>(Keindahan kata sejalan dengan perbuatan, mari saling menghargai sesama manusia)</small>
+        </p>
+        <p class="thanks-text">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan
+          hadir untuk memberikan doa restu.</p>
+        <p class="family-names">
+          Keluarga Besar Bpk. H. Ahmad & Ibu Hj. Marwah<br>
+          Keluarga Besar Bpk. H. Syamsuddin & Ibu Hj. Halimah
+        </p>
+        <div class="copyright">
+          <p>&copy; 2026 Undangan Pernikahan Digital Adat Bugis • Made with ❤️</p>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-notification" class="toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Berhasil disalin!</span>
+  </div>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</body>
+
+</html>
